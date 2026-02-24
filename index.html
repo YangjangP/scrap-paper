@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>慶和楼 - Reverse:1999 UNOFFICIAL goods</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- 日本語の明朝体フォント（Noto Serif JP）を読み込み -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        paper: '#f4f1ea', // 古い紙のような背景色
-                        ink: '#2b2b2b',   // 濃いグレー/黒のインク色
-                        accent: '#8b0000' // アクセントカラー（ダークレッド）
+                        paper: '#f4f1ea',
+                        ink: '#2b2b2b',
+                        accent: '#8b0000'
                     },
                     fontFamily: {
                         serif: ['"Noto Serif JP"', 'serif'],
@@ -26,31 +26,39 @@
             }
         }
     </script>
+
     <style>
-        /* 新聞らしさを出すための追加スタイル */
         body {
-            background-color: #e5e3db; /* 外側の背景は少し暗めに */
+            background-color: #d1cfc5;
         }
-        
+
+        /* 신문 본문 용지 - 원본 이미지 톤 최대한 유지 */
         .newspaper-container {
-            background-color: #f4f1ea;
-            /* 테두리 빛바램(빈티지 비네팅) 효과 추가 */
-            box-shadow: inset 0 0 120px rgba(139, 69, 19, 0.12), 0 0 20px rgba(0,0,0,0.1); 
-            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png'); /* 微細な紙の質感 */
+            position: relative;
+            isolation: isolate;
+            background-color: transparent;
+            box-shadow: 0 0 20px rgba(0,0,0,0.12);
+
+            background-image: url('https://img-cdn.theqoo.net/JrzzAJ.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
         }
 
-        /* 기본 잉크 색상 설정 */
+        /* 원본 톤 보존을 위해 오버레이 제거 */
+        .newspaper-container::before {
+            content: none;
+        }
+
         .text-ink {
-            color: #2b2b2b;
+            color: #2f2c27;
         }
 
-        /* ヘッダーの境界線（上2重線、下1重線） */
         .header-border {
             border-top: 4px double #2b2b2b;
             border-bottom: 1px solid #2b2b2b;
         }
 
-        /* 頭文字を大きく（Drop Cap） */
         .drop-cap::first-letter {
             float: left;
             font-size: 3.5rem;
@@ -61,29 +69,25 @@
             color: #2b2b2b;
         }
 
-        /* 両端揃えと文字間隔の調整 */
         .article-text {
             text-align: justify;
-            overflow-wrap: break-word; /* 텍스트 탈출 방지를 위해 安全한 줄바꿈 적용 */
+            overflow-wrap: break-word;
             line-height: 1.8;
-            letter-spacing: 0.02em; /* 日本語に合わせて少し調整 */
+            letter-spacing: 0.02em;
         }
 
-        /* 문단 들여쓰기 (첫 문단인 drop-cap 제외) */
         .article-text p:not(.drop-cap) {
             text-indent: 1em;
         }
 
-        /* テキストの多段組み設定（タブレット用：2段） */
         @media (min-width: 768px) {
             .article-content {
                 column-count: 2;
                 column-gap: 2rem;
-                column-rule: 1px solid #d1d0c9;
+                column-rule: 1px solid rgba(80, 70, 50, 0.15);
             }
         }
 
-        /* テキストの多段組み設定（PC用：3段） */
         @media (min-width: 1024px) {
             .article-content {
                 column-count: 3;
@@ -94,33 +98,28 @@
 </head>
 <body class="font-serif text-ink antialiased">
 
-    <!-- メインコンテナ (너비를 max-w-4xl에서 max-w-6xl로 확장) -->
     <main class="newspaper-container max-w-6xl mx-auto min-h-screen px-5 py-8 md:px-12 md:py-12">
-        
-        <!-- 新聞ヘッダー (메인 타이틀 및 좌우 정보) -->
+
         <header class="mb-10 header-border py-6">
             <div class="flex flex-col md:flex-row justify-between items-center md:items-stretch gap-6 md:gap-0">
-                
-                <!-- 좌측 정보 (PC에서만 표시) -->
+
                 <div class="hidden md:flex md:w-1/4 flex-col justify-center text-left text-xs">
                     <div class="leading-relaxed">
-                        <span class="font-bold text-accent tracking-widest uppercase text-[10px]">Credit</span><br>
-                        Text : YangjangP<br>
+                        <span class="font-bold text-accent tracking-widest uppercase text-[10px]">Credit</span><br />
+                        Text : YangjangP<br />
                         Illustration : Kani
                     </div>
                 </div>
 
-                <!-- 가운데 기사 제목 -->
                 <div class="w-full md:w-2/4 text-center flex items-center justify-center">
                     <h1 class="font-title text-6xl md:text-7xl font-black leading-tight tracking-widest">
                         慶和楼
                     </h1>
                 </div>
 
-                <!-- 우측 정보 (PC에서만 표시) -->
                 <div class="hidden md:flex md:w-1/4 flex-col justify-center text-right text-xs">
                     <div class="font-bold leading-relaxed tracking-wider">
-                        February 22nd, 2026<br>
+                        February 22nd, 2026<br />
                         SUIT CASE RABBITS ver.2.0
                     </div>
                 </div>
@@ -128,9 +127,7 @@
             </div>
         </header>
 
-        <!-- 記事エリア -->
         <article>
-            <!-- 小説テキスト -->
             <div class="article-content article-text text-base md:text-lg text-gray-800 mb-10">
                 <p class="drop-cap mb-4">
                     LAのチャイナタウンには「慶和楼」という古くからある広東料理店がある。商売を始めたばかりの頃は、数人がやっと入れる程度の小さな店だったが、故郷の味を求めて頻繁に通ってくれた香港出身の留学生たちのおかげで、慶和楼は少しずつ規模を大きくしていくことができた。数多くいた彼らのうちの一人だった私は、卒業後もLAに残ることになり、この店でいちばん古い常連客になった。古びた壁に真っ白なペンキが塗られ、小さな木の丸卓が回転テーブルに変わるまで。いつも変わらない場所で温かいチャーハンを食べながら、馴染みの客たちと向き合う。
@@ -146,29 +143,31 @@
                 </p>
             </div>
 
-            <!-- 横長のイラスト (기사 하단으로 이동) -->
+            <!-- 横長のイラスト（크롭 없이 전체 표시） -->
             <figure class="mb-8 relative group cursor-pointer" onclick="openLightbox()">
-                <div class="overflow-hidden border border-gray-400 p-1 bg-white">
-                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
-                         alt="チャイナタウンのレストランの風景" 
-                         class="w-full h-auto aspect-[21/9] object-cover">
+                <div class="border border-gray-400 p-1 bg-white/80">
+                    <div class="w-full bg-gray-100/80 flex items-center justify-center">
+                        <img
+                            src="https://img-cdn.theqoo.net/JLXnwI.jpg?ixlib=rb-4.0.3&auto=format&w=1600&q=80"
+                            alt="チャイナタウンのレストランの風景"
+                            class="w-full h-auto object-contain"
+                        />
+                    </div>
                 </div>
-                <figcaption class="text-xs text-right mt-2 text-gray-500 italic">
+                <figcaption class="text-xs text-right mt-2 text-gray-600 italic">
                     <span class="font-bold underline cursor-pointer">タッチして拡大</span>
                 </figcaption>
             </figure>
 
-            <!-- 모바일 전용 하단 정보 (PC에서는 숨김) -->
             <div class="md:hidden mt-8 pt-6 border-t border-gray-300 flex flex-col gap-4 text-left text-xs text-gray-700">
                 <div class="leading-relaxed">
-                    <span class="font-bold text-accent tracking-widest uppercase text-[10px]">Credit</span><br>
-                    Text : YangjangP / Illustration : Kani <br>
+                    <span class="font-bold text-accent tracking-widest uppercase text-[10px]">Credit</span><br />
+                    Text : YangjangP / Illustration : Kani <br />
                     SUIT CASE RABBITS ver.2.0
                 </div>
             </div>
         </article>
-        
-        <!-- フッター -->
+
         <footer class="mt-8 pt-4 border-t border-gray-400 text-center text-xs text-gray-500 pb-8">
             <p></p>
             <p class="mt-1">Reverse:1999 UNOFFICIAL ARTICLE</p>
@@ -176,36 +175,49 @@
 
     </main>
 
-    <!-- イラスト拡大表示用のライトボックス（モーダル） -->
-    <div id="image-lightbox" class="fixed inset-0 bg-black bg-opacity-95 hidden z-50 flex-col items-center justify-center p-4 transition-opacity">
-        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white p-2">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <!-- ライトボックス -->
+    <div id="image-lightbox" class="fixed inset-0 bg-black/95 hidden z-50 flex-col items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white p-2 z-10">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
         </button>
-        <p class="text-white text-sm mb-4 bg-black bg-opacity-50 px-3 py-1 rounded-full">横向きにすると見やすくなります 📱↺</p>
-        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-             alt="拡大されたイラスト" 
-             class="max-w-full max-h-[80vh] object-contain border-2 border-gray-800">
+
+        <p class="text-white text-sm mb-4 bg-black/50 px-3 py-1 rounded-full shrink-0">
+            横向きにすると見やすくなります 📱↺
+        </p>
+
+        <div class="w-full max-w-[95vw] h-[calc(100vh-120px)] flex items-center justify-center">
+            <img
+                src="https://img-cdn.theqoo.net/djaAJN.jpg?ixlib=rb-4.0.3&auto=format&w=2600&q=80"
+                alt="拡大されたイラスト"
+                class="max-w-full max-h-full w-auto h-auto object-contain border-2 border-gray-800"
+            />
+        </div>
     </div>
 
-    <!-- 라이트박스 스크립트 -->
     <script>
-        // 라이트박스 여닫기
         function openLightbox() {
-            document.getElementById('image-lightbox').classList.remove('hidden');
-            document.getElementById('image-lightbox').classList.add('flex');
+            const lightbox = document.getElementById('image-lightbox');
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
             document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox() {
-            document.getElementById('image-lightbox').classList.add('hidden');
-            document.getElementById('image-lightbox').classList.remove('flex');
+            const lightbox = document.getElementById('image-lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
             document.body.style.overflow = 'auto';
         }
 
-        document.addEventListener('keydown', function(event) {
-            if (event.key === "Escape") closeLightbox();
+        document.getElementById('image-lightbox').addEventListener('click', function (e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') closeLightbox();
         });
     </script>
 </body>
 </html>
-
