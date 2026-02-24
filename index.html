@@ -32,18 +32,15 @@
             background-color: #d1cfc5;
         }
 
-        /* 신문 본문 용지 - 원본 이미지 톤 최대한 유지 및 톤업 */
+        /* 신문 본문 용지 - 원본 이미지 톤 최대한 유지 */
         .newspaper-container {
             position: relative;
             isolation: isolate;
-            /* 원본에 투명도가 있을 경우를 대비해 바닥에 완벽한 흰색을 깔아줍니다 */
-            background-color: #ffffff; 
+            background-color: transparent;
             box-shadow: 0 0 20px rgba(0,0,0,0.12);
 
-            /* ★ 변경됨: linear-gradient를 추가하여 이미지 위에 5%(0.05) 투명도의 흰색을 덮어 톤을 밝힙니다 */
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), 
-                url('./backgroud.jpg');
+            /* ★ 변경됨: 깃허브에 업로드한 배경 파일 이름으로 수정 */
+            background-image: url('./background.jpg');
             
             background-repeat: no-repeat;
             background-size: cover;
@@ -152,6 +149,7 @@
             <figure class="mb-8 relative group cursor-pointer" onclick="openLightbox()">
                 <div class="border border-gray-400 p-1 bg-white/80">
                     <div class="w-full bg-gray-100/80 flex items-center justify-center">
+                        <!-- ★ 변경됨: 깃허브에 업로드한 일러스트 파일 이름으로 수정 -->
                         <img
                             src="./Illust1.jpg"
                             alt="チャイナタウンのレストランの風景"
@@ -193,6 +191,7 @@
         </p>
 
         <div class="w-full max-w-[95vw] h-[calc(100vh-120px)] flex items-center justify-center">
+            <!-- ★ 변경됨: 라이트박스(확대)용 이미지도 업로드한 파일 이름으로 수정 -->
             <img
                 src="./Illust2.jpg"
                 alt="拡大されたイラスト"
@@ -226,3 +225,4 @@
     </script>
 </body>
 </html>
+
