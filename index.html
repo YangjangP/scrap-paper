@@ -74,7 +74,7 @@
             text-indent: 1em;
         }
 
-        /* テキストの多段組み設定（PC/タブレット用） */
+        /* テキストの多段組み設定（タブレット用：2段） */
         @media (min-width: 768px) {
             .article-content {
                 column-count: 2;
@@ -82,12 +82,20 @@
                 column-rule: 1px solid #d1d0c9;
             }
         }
+
+        /* テキストの多段組み設定（PC用：3段） */
+        @media (min-width: 1024px) {
+            .article-content {
+                column-count: 3;
+                column-gap: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body class="font-serif text-ink antialiased">
 
-    <!-- メインコンテナ -->
-    <main class="newspaper-container max-w-4xl mx-auto min-h-screen px-5 py-8 md:px-12 md:py-12">
+    <!-- メインコンテナ (너비를 max-w-4xl에서 max-w-6xl로 확장) -->
+    <main class="newspaper-container max-w-6xl mx-auto min-h-screen px-5 py-8 md:px-12 md:py-12">
         
         <!-- 新聞ヘッダー (메인 타이틀 및 좌우 정보) -->
         <header class="mb-10 header-border py-6">
