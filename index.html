@@ -32,14 +32,13 @@
             background-color: #d1cfc5;
         }
 
-        /* 신문 본문 용지 - 원본 이미지 톤 최대한 유지 */
+        /* 신문 본문 용지 */
         .newspaper-container {
             position: relative;
             isolation: isolate;
             background-color: transparent;
             box-shadow: 0 0 20px rgba(0,0,0,0.12);
 
-            /* ★ 변경됨: 깃허브에 업로드한 배경 파일 이름으로 수정 */
             background-image: url('./background.jpg');
             
             background-repeat: no-repeat;
@@ -47,7 +46,6 @@
             background-position: center center;
         }
 
-        /* 원본 톤 보존을 위해 오버레이 제거 */
         .newspaper-container::before {
             content: none;
         }
@@ -145,11 +143,9 @@
                 </p>
             </div>
 
-            <!-- 横長のイラスト（크롭 없이 전체 표시） -->
             <figure class="mb-8 relative group cursor-pointer" onclick="openLightbox()">
                 <div class="border border-gray-400 p-1 bg-white/80">
                     <div class="w-full bg-gray-100/80 flex items-center justify-center">
-                        <!-- ★ 변경됨: 깃허브에 업로드한 일러스트 파일 이름으로 수정 -->
                         <img
                             src="./Illust1.jpg"
                             alt="チャイナタウンのレストランの風景"
@@ -178,7 +174,6 @@
 
     </main>
 
-    <!-- ライトボックス -->
     <div id="image-lightbox" class="fixed inset-0 bg-black/95 hidden z-50 flex-col items-center justify-center p-4">
         <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white p-2 z-10">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,7 +186,6 @@
         </p>
 
         <div class="w-full max-w-[95vw] h-[calc(100vh-120px)] flex items-center justify-center">
-            <!-- ★ 변경됨: 라이트박스(확대)용 이미지도 업로드한 파일 이름으로 수정 -->
             <img
                 src="./Illust2.jpg"
                 alt="拡大されたイラスト"
@@ -225,4 +219,5 @@
     </script>
 </body>
 </html>
+
 
